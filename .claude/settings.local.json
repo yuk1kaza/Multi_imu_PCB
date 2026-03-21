@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cargo build)",
+      "Bash(cargo r:*)",
+      "WebSearch",
+      "WebFetch(domain:invensense.tdk.com)",
+      "Bash(python:*)",
+      "Bash(pip install:*)"
+    ]
+  }
+}

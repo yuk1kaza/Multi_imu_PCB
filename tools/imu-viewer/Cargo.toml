@@ -1,0 +1,18 @@
+[package]
+name = "imu-viewer"
+edition.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+eframe.workspace = true
+egui.workspace = true
+egui_plot.workspace = true
+heapless.workspace = true
+imu-core = { path = "../../crates/imu-core", features = ["json", "std-json", "binary", "std"] }
+serialport.workspace = true
+serde_json.workspace = true
+
+[[bin]]
+name = "imu-viewer"
+path = "src/main.rs"

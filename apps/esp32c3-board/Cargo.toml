@@ -1,0 +1,29 @@
+[package]
+name = "esp32c3-board"
+edition.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[features]
+default = ["json-transport"]
+json-transport = []
+binary-transport = []
+
+[dependencies]
+embassy-executor.workspace = true
+embassy-time.workspace = true
+esp-bootloader-esp-idf = { workspace = true, features = ["esp32c3"] }
+esp-hal = { workspace = true, features = ["esp32c3"] }
+esp-println = { workspace = true, features = ["defmt-espflash", "uart", "esp32c3"] }
+esp-rtos = { workspace = true, features = ["esp32c3"] }
+heapless.workspace = true
+imu-core = { path = "../../crates/imu-core", default-features = false, features = ["json", "binary"] }
+imu-drivers = { path = "../../crates/imu-drivers" }
+imu-fusion = { path = "../../crates/imu-fusion" }
+imu-firmware = { path = "../../crates/imu-firmware" }
+imu-platform-esp = { path = "../../crates/imu-platform-esp", features = ["esp32c3"] }
+
+[[bin]]
+name = "esp32c3-board"
+path = "src/main.rs"
+test = false
